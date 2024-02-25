@@ -1,0 +1,63 @@
+Q1
+SELECT Customers.CustomerID, OrderID, OrderDate FROM Northwind.dbo.Customers join Northwind.dbo.Orders ON Customers.CustomerID = Orders.CustomerID;
+***
+
+
+Q2
+SELECT Customers.CustomerID, OrderID, OrderDate FROM Northwind.dbo.Customers join Northwind.dbo.Orders ON Customers.CustomerID = Orders.CustomerID WHERE Orders.OrderID IS NULL;
+***
+
+
+Q3
+SELECT Customers.CustomerID, OrderID, OrderDate FROM Northwind.dbo.Customers join Northwind.dbo.Orders ON Customers.CustomerID = Orders.CustomerID WHERE MONTH(Orders.OrderDate) = 7 AND YEAR(Orders.OrderDate) = 1997;
+***
+
+
+Q4
+SELECT  Orders.CustomerID, Count(OrderID) AS totalorders FROM Northwind.dbo.Orders Group by Orders.CustomerID;
+***
+
+
+Q5
+SELECT EmployeeID, FirstName, LastName FROM Northwind.dbo.Employees CROSS JOIN (SELECT 1 AS n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5) AS copies;
+***
+
+
+Q6
+
+***
+
+
+Q7
+SELECT CustomerID, COUNT(OrderID) AS Totalorders, Sum(Quantity) AS totalquantity FROM Northwind.dbo.Customers CROSS JOIN Northwind.dbo.[Order Details] WHERE Country = 'USA' GROUP BY CustomerID ORDER BY CustomerID;
+***
+
+
+Q8
+SELECT Customers.CustomerID, CompanyName, OrderID, OrderDate FROM Northwind.dbo.Customers CROSS JOIN Northwind.dbo.[Orders] WHERE MONTH(Orders.OrderDate) = 7 AND DAY(Orders.OrderDate) = 4 AND YEAR(Orders.OrderDate) = 1997;
+***
+
+
+Q9
+
+***
+
+
+Q10
+
+***
+
+
+Q11
+SELECT ProductName, OrderDate FROM Northwind.dbo.Products CROSS JOIN Northwind.dbo.Orders WHERE MONTH(Orders.OrderDate) = 8 AND DAY(Orders.OrderDate) = 8 AND YEAR(Orders.OrderDate) = 1997;
+***
+
+
+Q12
+SELECT Orders.ShipAddress, Customers.City, Customers.Country FROM Northwind.dbo.Customers join Northwind.dbo.Orders join Northwind.dbo.Employees ON CustomerID = Orders.CustomerID ON Orders.EmployeeID = Employees.EmployeeID WHERE Employees.FirstName = 'Anne' AND Orders.ShippedDate > Orders.RequiredDate;
+***
+
+
+Q13
+
+***
